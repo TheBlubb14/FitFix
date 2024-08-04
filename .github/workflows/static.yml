@@ -31,6 +31,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: 9.x
+
       # publishes Blazor project to the release folder
       - name: Publish Project
         run: dotnet publish FitFix/FitFix.csproj -c Release -o release --nologo

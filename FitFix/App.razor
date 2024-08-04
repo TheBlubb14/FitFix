@@ -1,0 +1,35 @@
+﻿@using FitFix
+@inject IJSRuntime JS
+
+<div>
+    <table style="border: 2px solid rgb(140 140 140);">
+        <tbody>
+            <tr>
+                <th scope="row">SubSport</th>
+                <td>
+                    <InputSelect @bind-Value="subSport">
+                        <option value="Mountain">Mountain</option>
+                        <option value="Road">Road</option>
+                        <option value="GravelCycling">GravelCycling</option>
+                    </InputSelect>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Keep FileName</th>
+                <td><InputCheckbox @bind-Value="keepFileName" /></td>
+            </tr>
+            <tr>
+                <th scope="row">New FileName</th>
+                <td><input type="text" @bind-value="newFileName" /></td>
+            </tr>
+            <tr>
+                <th scope="row">Upload and process .fit</th>
+                <td><InputFile OnChange="Upload" /></td>
+            </tr>
+        </tbody>
+    </table>
+    @if (processing)
+    {
+        <div class="loader"></div>
+    }
+</div>

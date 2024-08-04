@@ -39,10 +39,9 @@ jobs:
       - name: Publish Project
         run: dotnet publish FitFix/FitFix.csproj -c Release -o release --nologo
 
-      # disabled, as we use custom domain
       # changes the base-tag in index.html from '/' to 'FitFix' to match GitHub Pages repository subdirectory
-      #- name: Change base-tag in index.html from / to FitFix
-      #  run: sed -i 's/<base href="\/" \/>/<base href="\/FitFix\/" \/>/g' release/wwwroot/index.html
+      - name: Change base-tag in index.html from / to FitFix
+        run: sed -i 's/<base href="\/" \/>/<base href="\/FitFix\/" \/>/g' release/wwwroot/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
